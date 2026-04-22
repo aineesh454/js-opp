@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        I body {
+            font-family: monospace;
+            background-color: wheat;
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        .displayValue {
+            max-width: fit-content;
+            background-color: brown;
+            padding: 10px 12px;
+            border: 3px solid white;
+            border-radius: 3px;
+            box-shadow: 0px 2px 4px 0px gray;
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Create a Hotel Class and display its details</h2>
+
+    <script>
+        class HotelBP {
+            project = "OOP";
+
+            constructor(name, floors, staff) {
+                this.name = name;
+                this.floors = floors;
+                this.staff = staff;
+            }
+
+            displayDetails() {
+                let p = document.createElement("p")
+                p.classList.add("displayValue");
+
+                p.innerText =
+                    "the name of the hotel is " + this.name +
+                    " and it has " + this.floors +
+                    " floors and " + this.staff + "   staffs."
+
+                document.body.appendChild(p)
+            }
+        }
+
+        let TajHotel = new HotelBP("Taj", 5, 100);
+        TajHotel.displayDetails();
+
+        let MarriotHotel = new HotelBP("Marriot", 3, 50);
+        MarriotHotel.displayDetails();
+
+    </script>
+</body>
+
+</html>

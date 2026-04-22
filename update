@@ -1,0 +1,5 @@
+#!/usr/bin
+git status
+git add .
+git commit "${1:"updates"}" 
+git push
