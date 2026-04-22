@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+       <style>
+        I body {
+            font-family: monospace;
+            background-color: wheat;
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        .displayValue {
+            max-width: fit-content;
+            background-color: brown;
+            padding: 10px 12px;
+            border: 3px solid white;
+            border-radius: 3px;
+            box-shadow: 0px 2px 4px 0px gray;
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <strong id="details"></strong>
+    <div id="parent"></div>
+    <p id="child"></p>
+
+    <script>
+        class GrandFather {
+            constructor(car, cash) {
+                this.car = car;
+                this.cash = cash;
+            }
+
+            displayDetails() {
+                let p = document.createElement("p");
+                p.classList.add("displayValue");
+                document.getElementById("child").appendChild(p);
+                p.innerText = "The car is " + this.car + " and the cash is " + this.cash;
+
+            }
+        }
+        class GrandChild extends GrandFather {
+            constructor(car, cash, house) {
+                super(car, cash); 
+                this.house = house;
+            }
+
+            displayDetails() {
+                let p = document.createElement("p");
+                p.classList.add("displayValue");
+                document.getElementById("child").appendChild(p);
+                p.innerText = "The car is " + this.car + " and the cash is " + this.cash + " and the house is " + this.house;
+            }
+            show(){
+                document.getElementById("details").innerText ="Enjoy your inherited property........."
+
+            }
+        }
+        let GrandChild = new GrandChild("Honda",1000000,"house")
+        GrandChild.displayDetails()
+        GrandChild.show()
+
+        let GrandFather = new GrandFather("Honda",1000000)
+        GrandFather.displayDetails();
+    </script>
+
+</body>
+
+</html>
